@@ -95,6 +95,47 @@ const state = {
   selectedPollOption: null,
 };
 
+const state = {
+  sidebarExpanded: false,
+  currentAnnouncement: 0,
+  branchFilter: 'all',
+  semesterFilter: 'all',
+  resBranchFilter: 'all',
+  resSemFilter: 'all',
+  feedFilter: 'all',
+  registeredEvents: new Set(),
+  interestedEvents: new Set(),
+  likedPosts: new Set(),
+  selectedPollOption: null,
+};
+const state = {
+  sidebarExpanded: false,
+  currentAnnouncement: 0,
+  branchFilter: 'all',
+  semesterFilter: 'all',
+  resBranchFilter: 'all',
+  resSemFilter: 'all',
+  feedFilter: 'all',
+  registeredEvents: new Set(),
+  interestedEvents: new Set(),
+  likedPosts: new Set(),
+  selectedPollOption: null,
+};
+const state = {
+  sidebarExpanded: false,
+  currentAnnouncement: 0,
+  branchFilter: 'all',
+  semesterFilter: 'all',
+  resBranchFilter: 'all',
+  resSemFilter: 'all',
+  feedFilter: 'all',
+  registeredEvents: new Set(),
+  interestedEvents: new Set(),
+  likedPosts: new Set(),
+  selectedPollOption: null,
+};
+
+
 // ──────────── DOM REFS ────────────
 
 const $ = (sel) => document.querySelector(sel);
@@ -340,6 +381,20 @@ function renderResources() {
     });
   });
 }
+
+const state = {
+  sidebarExpanded: false,
+  currentAnnouncement: 0,
+  branchFilter: 'all',
+  semesterFilter: 'all',
+  resBranchFilter: 'all',
+  resSemFilter: 'all',
+  feedFilter: 'all',
+  registeredEvents: new Set(),
+  interestedEvents: new Set(),
+  likedPosts: new Set(),
+  selectedPollOption: null,
+};
 
 // ──────────── LOST & FOUND ────────────
 
