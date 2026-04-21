@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CampusFlow — Your smart campus dashboard for announcements, events, resources, and community.">
+  <title>CampusFlow — Campus Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+
+<div class="app-layout" id="appLayout">
+
+  <!-- ====== SIDEBAR ====== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo" id="sidebarToggle" title="Toggle Sidebar">
+      <div class="logo-icon"><span></span><span></span><span></span><span></span></div>
+      <span class="logo-text">CampusFlow</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="nav-item active" data-section="dashboard">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        <span class="nav-label">Dashboard</span>
+      </a>
+      <a class="nav-item" data-section="feed">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span class="nav-label">Feed</span>
+      </a>
+      <a class="nav-item" data-section="events">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span class="nav-label">Events</span>
+      </a>
+      <a class="nav-item" data-section="lostfound">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span class="nav-label">Lost & Found</span>
+      </a>
+      <a class="nav-item" data-section="resources">
+        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <span class="nav-label">Resources</span>
+      </a>
+      <a class="nav-item" data-section="profile">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="nav-label">Profile</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-profile" id="sidebarProfile">
+        <div class="profile-avatar">AX</div>
+        <div class="profile-info">
+          <div class="profile-name">Alex Johnson</div>
+          <div class="profile-role">CS Student</div>
+        </div>
+      </div>
+      <div class="sidebar-actions">
+        <button class="sidebar-action-btn primary" title="Create New">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <button class="sidebar-action-btn" title="Notifications">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="badge"></span>
+        </button>
+        <button class="sidebar-action-btn" title="Logout">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ====== MAIN AREA ====== -->
+  <div class="main-area" id="mainArea">
+
+    <!-- ====== TOP NAVBAR ====== -->
+    <header class="top-navbar">
+      <div class="navbar-greeting">Good evening, <span>Alex</span> 👋</div>
+
+      <div class="navbar-search">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="searchInput" placeholder="Search CampusFlow resources, events...">
+      </div>
+
+      <div class="navbar-right">
+        <button class="navbar-btn" id="notifBtn" title="Notifications">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="badge"></span>
+        </button>
+
+        <div class="mode-toggle">
+          <span class="mode-label">Performance Mode</span>
+          <span class="mode-info">CS Dept • Sem 5</span>
+          <div class="toggle-switch active" id="modeSwitch"></div>
+        </div>
+
+        <div class="navbar-profile" id="navProfile">
+          <div class="avatar">AX</div>
+        </div>
+
+        <button class="create-post-btn" id="createPostBtn">+ Create Post</button>
+      </div>
+    </header>
+
+    <!-- ====== CONTENT ====== -->
+    <div class="content-wrapper">
+      <div class="content-main">
+
+        <!-- Hero Announcement -->
+        <section class="hero-section animate-in animate-delay-1" id="heroSection">
+          <div class="hero-card parallax-bg" id="heroCard">
+            <div class="hero-content">
+              <div class="hero-tag"><span class="dot"></span> IMPORTANT ANNOUNCEMENT</div>
+              <h1 class="hero-title" id="heroTitle">Mid Sem Exam Schedule Released</h1>
+              <div class="hero-filters" id="heroChips"></div>
+              <div class="hero-actions">
+                <button class="hero-btn primary">View Notice</button>
+                <button class="hero-btn secondary">View More</button>
+              </div>
+            </div>
+          </div>
+          <div class="filter-bar" id="announcementFilters">
+            <select class="filter-select" id="branchFilter">
+              <option value="all">All Branches</option>
+              <option value="cs">Computer Science</option>
+              <option value="mech">Mechanical</option>
+              <option value="ece">Electronics</option>
+              <option value="civil">Civil</option>
+            </select>
+            <select class="filter-select" id="semesterFilter">
+              <option value="all">All Semesters</option>
+              <option value="1">Semester 1</option>
+              <option value="2">Semester 2</option>
+              <option value="3">Semester 3</option>
+              <option value="4">Semester 4</option>
+              <option value="5">Semester 5</option>
+              <option value="6">Semester 6</option>
+              <option value="7">Semester 7</option>
+              <option value="8">Semester 8</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- Upcoming Events -->
+        <section class="events-section animate-in animate-delay-2" id="eventsSection">
+          <div class="events-header">
+            <h2 class="section-title">Upcoming Events</h2>
+            <div class="events-nav">
+              <button class="scroll-arrow" id="eventsLeft" title="Scroll left">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button class="scroll-arrow" id="eventsRight" title="Scroll right">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9 6 15 12 9 18"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="events-scroll-wrapper">
+            <div class="events-scroll" id="eventsScroll"></div>
+          </div>
+        </section>
+
+        <!-- Resources + Lost & Found -->
+        <div class="resources-lostfound animate-in animate-delay-3">
+          <!-- Campus Resources -->
+          <section class="resources-section" id="resourcesSection">
+            <div class="section-header">
+              <h2 class="section-title">Campus Resources</h2>
+            </div>
+            <div class="filter-bar" style="margin-bottom:14px; margin-top:-8px;">
+              <select class="filter-select" id="resBranchFilter">
+                <option value="all">All Branches</option>
+                <option value="cs">Computer Science</option>
+                <option value="mech">Mechanical</option>
+                <option value="ece">Electronics</option>
+              </select>
+              <select class="filter-select" id="resSemFilter">
+                <option value="all">All Semesters</option>
+                <option value="3">Semester 3</option>
+                <option value="5">Semester 5</option>
+                <option value="7">Semester 7</option>
+              </select>
+            </div>
+            <div class="resource-list" id="resourceList"></div>
+            <a class="view-archive-link">VIEW LIBRARY ARCHIVE</a>
+          </section>
+
+          <!-- Lost & Found -->
+          <section class="lostfound-section" id="lostfoundSection">
+            <div class="section-header">
+              <h2 class="section-title">Lost & Found</h2>
+              <span class="section-link">REPORT ITEM</span>
+            </div>
+            <div class="lostfound-grid" id="lostfoundGrid"></div>
+          </section>
+        </div>
+
+        <!-- Campus Feed -->
+        <section class="feed-section animate-in animate-delay-4" id="feedSection">
+          <div class="feed-header">
+            <h2 class="section-title">Campus Feed</h2>
+            <div class="feed-filters" id="feedFilters">
+              <button class="feed-filter-btn active" data-filter="all">All</button>
+              <button class="feed-filter-btn" data-filter="important">Important</button>
+              <button class="feed-filter-btn" data-filter="event">Events</button>
+              <button class="feed-filter-btn" data-filter="help">Help</button>
+            </div>
+          </div>
+
+          <!-- Composer -->
+          <div class="feed-composer">
+            <div class="composer-avatar">AX</div>
+            <div class="composer-input-wrapper">
+              <textarea class="composer-input" placeholder="Share something with the campus..."></textarea>
+              <div class="composer-actions">
+                <div class="composer-media-btns">
+                  <button class="composer-media-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    IMAGE
+                  </button>
+                  <button class="composer-media-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                    POLL
+                  </button>
+                </div>
+                <button class="composer-post-btn">Post</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="feed-posts" id="feedPosts"></div>
+        </section>
+
+      </div>
+
+      <!-- ====== RIGHT SIDEBAR ====== -->
+      <aside class="right-sidebar">
+
+        <!-- Active Channels -->
+        <section class="channels-section animate-in animate-delay-2">
+          <div class="section-header">
+            <h2 class="section-title">Active Channels</h2>
+            <span class="section-link">SEE ALL</span>
+          </div>
+          <div class="channel-list" id="channelList"></div>
+        </section>
+
+        <!-- Productivity Goal -->
+        <div class="widget animate-in animate-delay-3" id="productivityWidget">
+          <div class="productivity-header">
+            <span class="productivity-label">Productivity Goal</span>
+            <div class="productivity-icon">⚡</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header">
+              <span class="progress-name">Exam Preparation</span>
+              <span class="progress-value">75%</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill cyan" style="width:75%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header">
+              <span class="progress-name">Project Submissions</span>
+              <span class="progress-value">60%</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill magenta" style="width:60%"></div></div>
+          </div>
+          <button class="optimize-btn">OPTIMIZE FLOW</button>
+        </div>
+
+        <!-- Trending Now -->
+        <div class="widget animate-in animate-delay-4">
+          <div class="widget-title">Trending Now</div>
+          <div class="trending-tags">
+            <span class="trending-tag">#TechSummit24</span>
+            <span class="trending-tag">#MidSemDates</span>
+            <span class="trending-tag">#HackathonReady</span>
+            <span class="trending-tag">#CampusVibes</span>
+            <span class="trending-tag">#CodeWars</span>
+          </div>
+        </div>
+
+        <!-- Campus Poll -->
+        <div class="widget animate-in animate-delay-5" id="campusPollWidget">
+          <div class="widget-title">Campus Poll</div>
+          <p class="poll-question">Should the library be open 24/7 during exam weeks?</p>
+          <div class="poll-options" id="pollOptions">
+            <button class="poll-option-btn" data-poll="yes">Yes, absolutely!</button>
+            <button class="poll-option-btn" data-poll="no">No, normal hours are fine.</button>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!-- Create Post Modal -->
+<div class="modal-overlay" id="createPostModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title">Create Post</h3>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+    <textarea placeholder="What's on your mind?"></textarea>
+    <div class="modal-footer">
+      <button class="modal-btn cancel" id="modalCancel">Cancel</button>
+      <button class="modal-btn submit" id="modalSubmit">Post</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
