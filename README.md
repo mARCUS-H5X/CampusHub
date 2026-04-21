@@ -31,8 +31,6 @@ open index.html
 
 Or use **Live Server** in VS Code for the best experience.
 
-## Screenshots
-
 ![Dashboard](assets/event-tech-summit.png)
 
 ## License
